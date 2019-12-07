@@ -12,7 +12,12 @@ import { ProductList } from './styles';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
-  const amount = useSelector(state => state.cart.reduce((sumAmount, product) => ({ ...sumAmount, [product.id]: product.amount }), {}));
+  const amount = useSelector(state =>
+    state.cart.reduce(
+      (sumAmount, product) => ({ ...sumAmount, [product.id]: product.amount }),
+      {}
+    )
+  );
 
   const dispatch = useDispatch();
 

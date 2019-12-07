@@ -5,7 +5,9 @@ export default function cart(state = [], action) {
     case '@cart/REMOVE':
       return state.filter(product => product.id !== action.id);
     case '@cart/UPDATE_AMOUNT_SUCCESS':
-      return state.map(item => (item.id === action.id ? { ...item, amount: action.amount } : item));
+      return state.map(item =>
+        item.id === action.id ? { ...item, amount: action.amount } : item
+      );
     default:
       return state;
   }

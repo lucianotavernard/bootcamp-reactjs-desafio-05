@@ -1,6 +1,4 @@
-import {
-  call, select, put, all, takeLatest,
-} from 'redux-saga/effects';
+import { call, select, put, all, takeLatest } from 'redux-saga/effects';
 
 import { toast } from 'react-toastify';
 
@@ -12,7 +10,9 @@ import { formatPrice } from '../../../util/format';
 import { addToCartSuccess, updateAmountSuccess } from './actions';
 
 function* addToCart({ id }) {
-  const productExists = yield select(state => state.cart.find(product => product.id === id));
+  const productExists = yield select(state =>
+    state.cart.find(product => product.id === id)
+  );
 
   const stock = yield call(api.get, `stock/${id}`);
 
